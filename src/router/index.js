@@ -37,12 +37,9 @@ export default new Router({
         },
       ],
     }, {
-      path: '/childRouter',
+      path: '/childRouter/:id/:username', // 通过url传递参数 <router-link to='参数配置写这里面'>
       name: 'childRouter222',
       component: ChildRouter2,
-      parmas: {
-        username: 'Linth',
-      },
     },
   ],
 });

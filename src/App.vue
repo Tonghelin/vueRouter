@@ -4,7 +4,8 @@
     <div>
       <router-link to="/">Hello world!</router-link>
       <router-link to="/home">Home</router-link>
-      <router-link to="/childRouter">ChildRouterPage</router-link>
+      <!--通过url传递参数-->
+      <router-link to="/childRouter/123/Linth">ChildRouterPage</router-link>
     </div>
 
     <router-view/>
