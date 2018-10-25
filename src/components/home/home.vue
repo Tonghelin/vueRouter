@@ -3,11 +3,6 @@
       <h1>
         {{msg}}
       </h1>
-      <!--// 配置子路由-->
-      <router-link to="/home">childHome</router-link>
-      <router-link to="/home/childRouter1">ChildRouterPage</router-link>
-      <router-link :to="{name:'childRouter2',params:{username:'Linth'}}">Page222</router-link>
-      <router-view></router-view>
     </div>
 </template>
 
@@ -29,5 +24,11 @@ export default {
 </script>
 
 <style scoped>
-
+  #home{
+    float: left;
+    width: 50%;
+    height: 500px;
+    background: #f00;
+    color: #fff;
+  }
 </style>

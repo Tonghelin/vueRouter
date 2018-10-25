@@ -24,5 +24,12 @@ export default {
 </script>
 
 <style scoped>
+  #ChildRouter{
+    float: right;
+    width: 50%;
+    height: 500px;
+    background: #000;
+    color: #fff;
+  }
 
 </style>

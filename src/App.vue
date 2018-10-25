@@ -4,10 +4,12 @@
     <div>
       <router-link to="/">Hello world!</router-link>
       <router-link to="/home">Home</router-link>
-      <router-link to="/home/childRouter">ChildRouterPage</router-link>
+      <router-link to="/childRouter">ChildRouterPage</router-link>
     </div>
 
     <router-view/>
+    <router-view name="home"/>
+    <router-view name="ChildRouter"/>
   </div>
 </template>
 
