@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import Vue from 'vue';
 import Router from 'vue-router';
 import HelloWorld from '@/components/HelloWorld';
@@ -24,6 +25,13 @@ export default new Router({
       path: '/home',
       // name: 'home', // 当某个路由有子路由的时候，这时父级路由需要一个默认的路由，所以父级路由不能定义name属性
       component: home,
+      // 在路由配置文件中只能配置下面这个钩子函数 在模版中两个钩子函数都可以配置
+      beforeEnter: (to, from, next) => {
+        console.log('to', to);
+        console.log('from', from);
+        next();
+        // next(true);
+      },
       children: [
         {
           path: '/',

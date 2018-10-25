@@ -257,3 +257,58 @@ http://localhost:8080/#/
 
 ```
 
+## 路由中的钩子函数
+
+两种配置方法
+1. 写在路由配置文件中的钩子函数
+
+> 但是在路由文件中我们只能写一个beforeEnter,就是在进入此路由配置时。  
+
+```
+{
+      path:'/params/:newsId(\\d+)/:newsTitle',
+      component:Params,
+      beforeEnter:(to,from,next)=>{
+        console.log('我进入了params模板');
+        console.log(to);
+        console.log(from);
+        next();
+},
+```
+
+2. 写在模版中的钩子函数
+
+  写在模板中就可以有两个钩子函数可以使用：
+
+* beforeRouteEnter：在路由进入前的钩子函数。
+* beforeRouteLeave：在路由离开前的钩子函数。
+
+```
+export default {
+  name: 'params',
+  data () {
+    return {
+      msg: 'params page'
+    }
+  },
+  beforeRouteEnter:(to,from,next)=>{
+    console.log("准备进入路由模板");
+    next();
+  },
+  beforeRouteLeave: (to, from, next) => {
+    console.log("准备离开路由模板");
+    next();
+  }
+}
+//这是写在params.vue模板里的路由钩子函数。它可以监控到路由的进入和路由的离开，也可以轻易的读出to和from的值。
+
+```
+
+* 三个参数：
+
+  to:路由将要跳转的路径信息，信息是包含在对像里边的。  
+  from:路径跳转前的路径信息，也是一个对象的形式。  
+  next:路由的控制参数，常用的有next(true)和next(false)。 
+  
+   
+
