@@ -2,6 +2,12 @@
   <div id="app">
     <img src="./assets/logo.png">
     <div>
+      <!--编程式导航-->
+      <button @click="goBack">后退</button>
+      <button @click="goForward">前进</button>
+      <button @click="random">random</button>
+    </div>
+    <div>
       <router-link to="/">Hello world!</router-link>
       <router-link to="/home">Home</router-link>
       <!--通过url传递参数-->
@@ -25,6 +31,17 @@
 <script>
 export default {
   name: 'App',
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    },
+    goForward() {
+      this.$router.go(1);
+    },
+    random() {
+      this.$router.push('/aaa');
+    },
+  },
 };
 </script>
 

@@ -3,6 +3,8 @@
 
 > A Vue.js project
 
+参考：[技术胖的Vue-router视频教程](http://jspang.com/post/vue-router.html)
+
 ## Build Setup
 
 ``` bash
@@ -159,6 +161,7 @@ export default new Router({
 ```
 
 // 当某个路由有子路由的时候，这时父级路由需要一个默认的路由，所以父级路由不能定义name属性
+
 ## 传参
 
 {{ $route.name }} // 注意是 $route 没有 r
@@ -309,6 +312,42 @@ export default {
   to:路由将要跳转的路径信息，信息是包含在对像里边的。  
   from:路径跳转前的路径信息，也是一个对象的形式。  
   next:路由的控制参数，常用的有next(true)和next(false)。 
+  
+
+## 编程式导航
+
+> 在这前面都是用<router-link>标签或者直接操作地址栏的形式完成的，那如果在业务逻辑代码中需要跳转页面我们如何操作？这就是我们要说的编程式导航，顾名思义，就是在业务逻辑代码中实现导航。
+
+```
+// 在App.vue 文件中
+<template>
+    <div>
+      <!--编程式导航-->
+      <button @click="goBack">后退</button>
+      <button @click="goForward">前进</button>
+      <button @click="random">random</button>
+    </div>
+    ···
+</template>
+
+
+<script>
+export default {
+  name: 'App',
+  methods: {
+    goBack() {
+      this.$router.go(-1); // 后退
+    },
+    goForward() {
+      this.$router.go(1); // 前进
+    },
+    random() {
+      this.$router.push('/aaa'); // 任意指定路径
+    },
+  },
+};
+</script>
+```
   
    
 
