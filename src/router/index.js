@@ -37,9 +37,15 @@ export default new Router({
         },
       ],
     }, {
-      path: '/childRouter/:id/:username', // 通过url传递参数 <router-link to='参数配置写这里面'>
+      path: '/childRouter/:id(\\d+)/:username', // 通过url传递参数 <router-link to='参数配置写这里面'>
       name: 'childRouter222',
       component: ChildRouter2,
+    }, { // redirect 重定向
+      path: '/goHome',
+      redirect: '/home', // 直接配置需要重定向的目标路径
+    }, { // redirect 重定向 & url 传递参数
+      path: '/showParams/:id(\\d+)/:username',
+      redirect: '/childRouter/:id(\\d+)/:username', // 直接配置需要重定向的目标路径
     },
   ],
 });

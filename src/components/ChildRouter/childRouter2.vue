@@ -7,7 +7,7 @@
       <h3>接收路由传递的参数</h3>
       <p>
         <!--接收url传递的参数{{$route.params.username}}-->
-        {{$route.name}}--{{$route.params.username}}
+        {{$route.params.id}}---{{$route.name}}--{{$route.params.username}}
       </p>
     </div>
 </template>

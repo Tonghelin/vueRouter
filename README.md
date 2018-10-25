@@ -170,4 +170,43 @@ export default new Router({
 接收参数: 在router-link 绑定的路由页面接收参数
 {{ $route.params.username}}
 
+> 通过url传递参数
+path: '/childRouter/:id(/这里面可以配置正则过滤/)/:username', // 通过url传递参数 <router-link to='参数配置写这里面'>
+
+## vue-router 重新定向
+```
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'HelloWorld',
+      components: { // 注意这里要加s
+        default: HelloWorld,
+        home, // 注意这里的名称要和 页面中 <router-view name=" home "/> 中的name一致
+        ChildRouter,
+      },
+    }, {
+      path: '/home',
+      // name: 'home', // 当某个路由有子路由的时候，这时父级路由需要一个默认的路由，所以父级路由不能定义name属性
+      component: home,
+    }, {
+      path: '/childRouter/:id(\\d+)/:username', // 通过url传递参数 <router-link to='参数配置写这里面'>
+      name: 'childRouter222',
+      component: ChildRouter2,
+    }, { // redirect 重定向
+      path: '/goHome',
+      redirect: '/home', // 直接配置需要重定向的目标路径
+    }, { // redirect 重定向 & url 传递参数
+      path: '/showParams/:id(\\d+)/:username',
+      redirect: '/childRouter/:id(\\d+)/:username', // 直接配置需要重定向的目标路径
+    },
+  ],
+});
+
+```
+
+
+
+
+
 
