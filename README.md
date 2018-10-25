@@ -223,3 +223,37 @@ export default new Router({
 
 与重定向类似，加载的是同一个页面，知识地址栏中的名称显示的是配置的别名
 
+## [路由过度动画](https://router.vuejs.org/zh/guide/advanced/transitions.html#%E5%8D%95%E4%B8%AA%E8%B7%AF%E7%94%B1%E7%9A%84%E8%BF%87%E6%B8%A1)
+
+在外面嵌套一层transition标签并配置name='效果'属性,然后在App.vue页面配置过度动画css样式即可，但效果不好看，还要配置mode="out-in"属性
+```
+  <transition name="fade" mode="out-in">
+     <router-view/>
+  </transition>
+```
+
+## mode的作用和404页面的处理
+
+在路由配置文件下添加
+mode="history" | mode="hash" 
+```
+mode="history"  //该模式下路径不带#
+mode="hash"     //该模式下地址栏路径是带#的
+
+// 表现不同
+http://localhost:8080/home
+http://localhost:8080/#/
+
+```
+
+### 404页面的处理
+
+
+```
+ {
+    path: '*', // * 匹配地址错误时展示404
+    component: Error,
+ },
+
+```
+

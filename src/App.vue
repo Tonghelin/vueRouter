@@ -13,6 +13,7 @@
       <!--alias别名-->
       <router-link to="/alias">alias</router-link>
       <router-link to="/aaa">alias--aaa</router-link>
+      <router-link to="/404">404</router-link>
     </div>
 
     <router-view/>
@@ -35,5 +36,19 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+/*过度动画*/
+.fade-enter {
+  opacity:0;
+}
+.fade-leave{
+  opacity:1;
+}
+.fade-enter-active{
+  transition:opacity .5s;
+}
+.fade-leave-active{
+  opacity:0;
+  transition:opacity .5s;
 }
 </style>

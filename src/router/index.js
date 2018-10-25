@@ -5,10 +5,12 @@ import home from '@/components/home/home';
 import ChildRouter from '@/components/ChildRouter/childRouter';
 import ChildRouter2 from '@/components/ChildRouter/childRouter2';
 import alias from '@/components/alias/alias';
+import Error from '@/components/Error/Error';
 
 Vue.use(Router);
 
 export default new Router({
+  mode: 'hash', // history
   routes: [
     {
       path: '/',
@@ -51,6 +53,9 @@ export default new Router({
       path: '/alias',
       component: alias,
       alias: '/aaa',
+    }, {
+      path: '*',
+      component: Error,
     },
   ],
 });
