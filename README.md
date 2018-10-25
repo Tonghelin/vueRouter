@@ -162,21 +162,24 @@ export default new Router({
 
 // 当某个路由有子路由的时候，这时父级路由需要一个默认的路由，所以父级路由不能定义name属性
 
+## dev1 vue-router路由 配置子路由 router-link标签传递参数
+## dev2 单页面多路由
+
 ## 传参
 
 {{ $route.name }} // 注意是 $route 没有 r
 * 页面中使用 $router.name 获取路由配置中name 的值
 
->  <router-link :to="{name:'homePage',params:{username:'Linth'}}"></router-link>  
+*  <router-link :to="{name:'homePage',params:{username:'Linth'}}"></router-link>  
 // 在router-link标签中使用 :to="{name: '/',params:{参数配置写这里}}"
 
 接收参数: 在router-link 绑定的路由页面接收参数
 {{ $route.params.username}}
 
-> 通过url传递参数
+* 通过url传递参数 dev3  
 path: '/childRouter/:id(/这里面可以配置正则过滤/)/:username', // 通过url传递参数 <router-link to='参数配置写这里面'>
 
-## vue-router 重新定向
+## vue-router 重新定向 dev4
 ```
 export default new Router({
   routes: [
@@ -208,7 +211,7 @@ export default new Router({
 
 ```
 
-## alias别名
+## alias别名 dev5
 
 ```
  { // alias 别名
@@ -226,7 +229,7 @@ export default new Router({
 
 与重定向类似，加载的是同一个页面，知识地址栏中的名称显示的是配置的别名
 
-## [路由过度动画](https://router.vuejs.org/zh/guide/advanced/transitions.html#%E5%8D%95%E4%B8%AA%E8%B7%AF%E7%94%B1%E7%9A%84%E8%BF%87%E6%B8%A1)
+## [路由过度动画](https://router.vuejs.org/zh/guide/advanced/transitions.html#%E5%8D%95%E4%B8%AA%E8%B7%AF%E7%94%B1%E7%9A%84%E8%BF%87%E6%B8%A1) dev6
 
 在外面嵌套一层transition标签并配置name='效果'属性,然后在App.vue页面配置过度动画css样式即可，但效果不好看，还要配置mode="out-in"属性
 ```
@@ -235,7 +238,7 @@ export default new Router({
   </transition>
 ```
 
-## mode的作用和404页面的处理
+## mode的作用和404页面的处理 dev6
 
 在路由配置文件下添加
 mode="history" | mode="hash" 
@@ -260,7 +263,7 @@ http://localhost:8080/#/
 
 ```
 
-## 路由中的钩子函数
+## 路由中的钩子函数 dev6
 
 两种配置方法
 1. 写在路由配置文件中的钩子函数
@@ -314,7 +317,7 @@ export default {
   next:路由的控制参数，常用的有next(true)和next(false)。 
   
 
-## 编程式导航
+## 编程式导航 dev7
 
 > 在这前面都是用<router-link>标签或者直接操作地址栏的形式完成的，那如果在业务逻辑代码中需要跳转页面我们如何操作？这就是我们要说的编程式导航，顾名思义，就是在业务逻辑代码中实现导航。
 
