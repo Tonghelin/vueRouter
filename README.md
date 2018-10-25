@@ -205,8 +205,21 @@ export default new Router({
 
 ```
 
+## alias别名
 
+```
+ { // alias 别名
+      path: '/alias',
+      component: alias,
+      alias: '/aaa',
+ },
+```
 
+```
+      <!--alias别名-->
+      <router-link to="/alias">alias</router-link>
+      <router-link to="/aaa">alias--aaa</router-link>
+```
 
-
+与重定向类似，加载的是同一个页面，知识地址栏中的名称显示的是配置的别名
 

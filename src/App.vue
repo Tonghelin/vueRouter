@@ -10,6 +10,9 @@
       <router-link to="/goHome">goHome</router-link>
       <!--重定向，并且传递参数和，若不传参数，将显示为空页面-->
       <router-link to="/showParams/6666/JSpang">showParams</router-link>
+      <!--alias别名-->
+      <router-link to="/alias">alias</router-link>
+      <router-link to="/aaa">alias--aaa</router-link>
     </div>
 
     <router-view/>

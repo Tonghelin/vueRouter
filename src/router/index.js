@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld';
 import home from '@/components/home/home';
 import ChildRouter from '@/components/ChildRouter/childRouter';
 import ChildRouter2 from '@/components/ChildRouter/childRouter2';
+import alias from '@/components/alias/alias';
 
 Vue.use(Router);
 
@@ -46,6 +47,10 @@ export default new Router({
     }, { // redirect 重定向 & url 传递参数
       path: '/showParams/:id(\\d+)/:username',
       redirect: '/childRouter/:id(\\d+)/:username', // 直接配置需要重定向的目标路径
+    }, { // alias 别名
+      path: '/alias',
+      component: alias,
+      alias: '/aaa',
     },
   ],
 });
