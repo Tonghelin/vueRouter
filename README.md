@@ -163,7 +163,44 @@ export default new Router({
 // 当某个路由有子路由的时候，这时父级路由需要一个默认的路由，所以父级路由不能定义name属性
 
 ## dev1 vue-router路由 配置子路由 router-link标签传递参数
+
 ## dev2 单页面多路由
+
+```
+  // 路由中配置
+  routes: [
+      {
+        path: '/',
+        name: 'HelloWorld',
+        components: { // 注意这里要加s
+          // 单页面多路由 配置多个模版
+          default: HelloWorld,
+          home, // 注意这里的名称要和 页面中 <router-view name=" home "/> 中的name一致
+          ChildRouter,
+        },
+      },
+    ],
+  });
+```
+
+```
+<template>
+  <div id="app">
+    <img src="./assets/logo.png">
+    <div>
+      <router-link to="/">Hello world!</router-link>
+      <router-link to="/home">Home</router-link>
+      <router-link to="/childRouter">ChildRouterPage</router-link>
+    </div>
+    
+    // 单页面多路由，页面中多路由配置
+    <router-view/>
+    <router-view name="home"/>
+    <router-view name="ChildRouter"/>
+  </div>
+</template>
+
+```
 
 ## 传参
 
